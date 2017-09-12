@@ -31,7 +31,7 @@ class JsonWithEncodingPipeline(object):
 class MysqlPipeline(object):
     #采用同步的机制写入mysql
     def __init__(self):
-        self.conn = MySQLdb.connect('localhost', 'root', '795200', 'spider', charset='utf8', use_unicode=True)
+        self.conn = MySQLdb.connect('localhost', 'root', 'root', 'spider', charset='utf8mb4', use_unicode=True)
         self.cursor = self.conn.cursor()
     def process_item(self, item, spider):
         insert_sql = """
