@@ -94,11 +94,8 @@ class JsonExporterPipeline(object):
 
 class ArticleImagePipeline(ImagesPipeline):
     def item_completed(self, results, item, info):
-        if "front_image_path" in item:
+        if "front_image_url" in item:
             for ok, value in results:
-                if ok:
-                    image_file_path = value["path"]
-                    item["front_image_path"] = image_file_path
-                else:
-                    item["front_image_path"] = ""
+                image_file_path = value["path"]
+            item["front_image_path"] = image_file_path
         return item
